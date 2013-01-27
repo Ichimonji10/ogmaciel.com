@@ -1,5 +1,7 @@
 import datetime
-from jinja2 import Template
+from jinja2 import Template, DictLoader
+from jinja2.environment import Environment
+
 
 BITBUCKET = 'img/bitbucket.png'
 LASTFM = 'img/lastfm.png'
@@ -11,6 +13,7 @@ GPLUS = 'img/google_plus.png'
 TWITTER = 'img/twitter.png'
 FLICKR = 'img/flickr.png'
 GOODREADS = 'img/goodreads.png'
+
 
 sites = {'sites': {
         'bitbucket': {
@@ -60,14 +63,27 @@ sites = {'sites': {
         }}
 
 vars = {
-    'today': datetime.datetime.today(),
-    'name': 'Og'}
+    'year': datetime.datetime.today().year,
+    'user': 'Og Maciel'}
 
 vars.update(sites)
 
-template_name = 'base.html'
-template = Template(open(template_name).read())
+#template_name = 'base.html'
+#template = Template(open(template_name).read())
 
-result = template.render(vars)
+#result = template.render(vars)
+
+env = Environment()
+
+#TODO: Move *.html files to a template dir and auto discover them.
+pages = ('base.html', 'content.html')
+templates = dict((name, open(name, 'rb').read()) for name in pages)
+env.loader = DictLoader(templates)
+
+
+env.loader = DictLoader(templates)
+
+tmpl = env.get_template('content.html')
+result = tmpl.render(vars)
 
 print result

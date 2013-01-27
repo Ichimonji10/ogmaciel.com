@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+      <div class="jumbotron">
+        <p class="lead">A Quality Engineer, a Red Hatter, an Open Source Translator, Occasional Python/Ruby Programmer, a Podcaster, a Dad.</p>
+      </div>
+
+      <div class="row-fluid marketing">
+        <div class="span6">
+
+          {% for s, v in sites.iteritems() %}
+
+          <h4>
+            <a href='{{ v.url }}' alt='{{ v.name }}'>
+              <img src='{{ v.img }}' />{{ v.name }}</a>
+          </h4>
+
+          {% endfor %}
+
+      </div>
+    </div>
+
+
+{% endblock %}
+

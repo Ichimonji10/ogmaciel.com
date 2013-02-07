@@ -13,6 +13,7 @@ GPLUS = 'img/google_plus.png'
 TWITTER = 'img/twitter.png'
 FLICKR = 'img/flickr.png'
 GOODREADS = 'img/goodreads.png'
+LINKEDIN = 'img/linkedin.png'
 
 
 sites = {'sites': {
@@ -60,6 +61,10 @@ sites = {'sites': {
             'name': 'GoodReads',
             'url': 'http://www.goodreads.com/user/show/12048315-og-maciel',
             'img': GOODREADS},
+        'linkedin': {
+            'name': 'Linkedin',
+            'url': 'http://www.linkedin.com/pub/og-maciel/7/425/257/',
+            'img': LINKEDIN},
         }}
 
 vars = {
